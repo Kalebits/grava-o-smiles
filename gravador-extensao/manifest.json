@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Gravador de Emissões MP",
+  "version": "1.0",
+  "description": "Grava seus passos nos sites (páginas, cliques, escolhas, erros e prints) para o app Emissões MP. Nunca grava o que você digita.",
+  "permissions": ["storage", "tabs", "unlimitedStorage"],
+  "host_permissions": ["<all_urls>"],
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    { "matches": ["http://*/*", "https://*/*"], "js": ["conteudo.js"], "run_at": "document_idle", "all_frames": true }
+  ],
+  "action": { "default_popup": "popup.html", "default_title": "Gravador de Emissões MP" }
+}
